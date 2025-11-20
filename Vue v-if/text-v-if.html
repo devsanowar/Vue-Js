@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V-If</title>
+    <style>
+      #app {
+        border: dashed black 1px;
+        width: 500px;
+        padding-left: 20px;
+        font-weight: bold;
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="text.includes('love')">The text includes the word 'pizza'</p>
+      <p v-else>The word 'pizza' is not found in the text</p>
+      <img src="./image/sanowar.jpg" alt="" :style="{'text-align': center, 'width': width + 'px'}">
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp, ref } = Vue;
+      createApp({
+        setup() {
+            return {
+                text: 'Hi, I am sanwoar, I love pizza.',
+                center: 'center',
+                width: 480
+            }
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>

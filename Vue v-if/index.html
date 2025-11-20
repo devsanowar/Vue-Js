@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V-If</title>
+    <style>
+      #app {
+        border: dashed black 1px;
+        width: 130px;
+        padding-left: 20px;
+        font-weight: bold;
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <p v-if="inStock">In Stock</p>
+      <p v-else>Out Of Stock</p> -->
+
+      <p v-if=" inStock > 5 ">In Stock</p>
+      <p v-else-if=" inStock > 0 ">Very few left</p>
+      <p v-else>Out Of Stock</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp, ref } = Vue;
+      createApp({
+        setup() {
+            return {
+                inStock: 5
+            }
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>
