@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Start Vue js</title>
-</head>
-<body>
 
+    <style>
+      .imageClass {
+        border: 1px solid #ddd;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
     <div id="app">
-        <p>Marks : {{ marks }}</p>
-        <button @click="increaseMarks">Increase Marks</button>
-        <img :src="url" alt="" width="200">
+      <p
+        :style="{ 'font-size': size + 'px', 'height': height + 'px', 'width': width + 'px', 'background-color': bgColor }"
+      >
+        Marks : {{ marks }}
+      </p>
+      <!-- <p :style="{ fontSize: size + 'px' }">Marks : {{ marks }}</p> -->
+      <button @click="increaseMarks">Increase Marks</button>
+      <div>
+        <img :class="className" :src="url" alt="" width="200" />
+      </div>
     </div>
-    
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        const { createApp, ref } = Vue;
+      const { createApp, ref } = Vue;
 
-        createApp({
-            setup() {
-                const marks = ref(0);
-                const url = ref("image/sanowar.jpg");
+      createApp({
+        setup() {
+          const marks = ref(0);
+          const url = ref("image/sanowar.jpg");
 
-                function increaseMarks() {
-                    marks.value++;
-                }
+          function increaseMarks() {
+            marks.value++;
+          }
 
-                return {
-                    marks,
-                    url,
-                    increaseMarks
-                };
-            }
-        }).mount('#app');
+          return {
+            marks,
+            url,
+            increaseMarks,
+            size: 30,
+            height: 200,
+            width: 400,
+            bgColor: "#ddd",
+            className: "imageClass",
+          };
+        },
+      }).mount("#app");
     </script>
-</body>
+  </body>
 </html>
