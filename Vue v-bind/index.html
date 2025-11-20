@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Vue js</title>
+</head>
+<body>
+
+    <div id="app">
+        <p>Marks : {{ marks }}</p>
+        <button @click="increaseMarks">Increase Marks</button>
+        <img :src="url" alt="" width="200">
+    </div>
+    
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp, ref } = Vue;
+
+        createApp({
+            setup() {
+                const marks = ref(0);
+                const url = ref("image/sanowar.jpg");
+
+                function increaseMarks() {
+                    marks.value++;
+                }
+
+                return {
+                    marks,
+                    url,
+                    increaseMarks
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
