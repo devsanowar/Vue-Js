@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue v-for loop with index in object</title>
+  </head>
+  <body>
+    <div id="app">
+      <table border="1">
+        <tr>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Marks</th>
+        </tr>
+        <tr v-for="student in students">
+            <td>{{ student.name }}</td>
+            <td>{{ student.sub }}</td>
+            <td>{{ student.marks }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+            const students = ref([
+                {name : "Md Sanowar", sub: "Bangla", marks: 80},
+                {name : "Md Karim", sub: "English", marks: 80},
+                {name : "Md Rahim", sub: "Mathmetics", marks: 80},
+                {name : "Md Rony", sub: "Chemistry", marks: 80},
+            ])
+
+            return {
+                students
+            }
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>

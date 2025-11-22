@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue V-For</title>
+</head>
+<body>
+    <div id="app">
+            <p v-for="(name, index) in names">{{ index+1 }}.{{ name }}</p>
+    </div>
+
+
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const {createApp, ref} = Vue;
+        createApp({
+            setup() {
+            const names = ref(['Tuhin', 'Rony', 'Sanowar']);
+
+            return {
+                names
+            }
+        }
+        }).mount('#app');
+
+
+    </script>
+</body>
+</html>
