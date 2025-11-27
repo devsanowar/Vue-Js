@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-for Vue js</title>
+    <style>
+    #app > div {
+      display: inline-block;
+      border: dashed black 1px;
+      padding: 10px;
+      background-color: lightgreen;
+    }
+    #app p {
+      font-weight: bold;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(x, index) in manyFoods">
+            {{ index }} - {{ x.name }} - {{ x.url }}
+        </p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp, ref } = Vue;
+        createApp({
+            setup() {
+                const manyFoods = [
+                    { name: "Apple", url:"apple.com"},
+                    { name: "Banana", url:"Banana.com"},
+                    { name: "Mango", url:"Mango.com"},
+                    { name: "Orange", url:"Orange.com"},
+                    { name: "Grapes", url:"Grapes.com"},
+                ]
+
+                return {
+                    manyFoods
+                }
+            }
+        }).mount("#app");
+    </script>
+
+</body>
+</html>
