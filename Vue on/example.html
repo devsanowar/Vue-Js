@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue on</title>
+</head>
+<body>
+
+    <div id="app" style="width: 500px;margin: 0 auto;text-align: center;">
+        <img v-bind:src="imgUrl" alt="Sanowar Image" width="200">
+        <ul style="padding-left: 0;">
+            <li style="cursor: pointer;display: inline-block; padding: 10px 20px; margin-right: 5px; border: 1px solid #ddd;" v-for="food in teamMembers" v-on:click="imgUrl = food.url">{{ food.name }}</li>
+        </ul>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3"></script>\
+
+    <script>
+        const { createApp, ref } = Vue;
+        createApp({
+            setup() {
+                const imgUrl = ref('image/team-1.jpg');
+                const teamMembers = ref([
+                    { name: 'Sanowar', url: 'image/team-1.jpg' },
+                    { name: 'Karim', url: 'image/team-2.jpg' },
+                    { name: 'Rony', url: 'image/team-3.jpg' },
+                    { name: 'Byzid', url: 'image/team-4.jpg' },
+                    { name: 'Maruf', url: 'image/team-5.jpg' },
+                ]);
+
+                return {
+                    imgUrl,
+                    teamMembers
+                }
+            }
+        }).mount('#app');
+    </script>
+    
+</body>
+</html>
