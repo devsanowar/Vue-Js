@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event method</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="Increase">Increase</button>
+        <p>{{ "Count: " + count }}</p>
+        <button @click="Decrement">Decrement</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script>
+        const { createApp, ref } = Vue;
+        createApp({
+            setup() {
+                const count = ref(0);
+
+                function Increase(){
+                    count.value++;
+                }
+
+                function Decrement(){
+                    if(count.value > 0){
+                        count.value--;
+                    }
+                }
+
+                return {
+                    count,
+                    Increase,
+                    Decrement
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
