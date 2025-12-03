@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue On Method</title>
+</head>
+<body>
+    <div id="app">
+        <h2>Count : {{ count }}</h2>
+        <button v-on:click="addNumber(1)">Add (1)</button>
+        <button v-on:click="addNumber(5)">Add (5)</button>
+        <button v-on:click="addNumber(-1)">Add (-1)</button>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        const { createApp, ref } = Vue;
+        createApp({
+            setup() {
+                const count = ref(0);
+
+                function addNumber(num){
+                    count.value += num;
+                }
+
+                return {
+                    count,
+                    addNumber
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
