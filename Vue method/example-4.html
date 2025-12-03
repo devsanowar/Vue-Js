@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Position - Composition API</title>
+
+    <style>
+        #tracking-area {
+            width: 300px;
+            height: 200px;
+            background: lightblue;
+            border: 2px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div id="tracking-area" @mousemove="mousePos">
+        Move your mouse inside this area
+    </div>
+
+    <p>X Position: {{ xPos }}</p>
+    <p>Y Position: {{ yPos }}</p>
+</div>
+
+<script src="https://unpkg.com/vue@3"></script>
+
+<script>
+const { createApp, ref } = Vue;
+
+createApp({
+    setup() {
+        const xPos = ref(0);
+        const yPos = ref(0);
+
+        function mousePos(event) {
+            xPos.value = event.clientX;
+            yPos.value = event.clientY;
+        }
+
+        return {
+            xPos,
+            yPos,
+            mousePos
+        };
+    }
+}).mount('#app')
+</script>
+
+</body>
+</html>
